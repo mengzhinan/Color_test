@@ -2,9 +2,9 @@ package com.xxx.color_test
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -14,7 +14,7 @@ class ColorAlphaCalculationActivity : AppCompatActivity() {
     private var etAlphaPercent: EditText? = null
     private var tvColorResult: TextView? = null
     private var btnCount: Button? = null
-    private var llBgShow: LinearLayout? = null
+    private var vBgShow: View? = null
     private var tvTextShow: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class ColorAlphaCalculationActivity : AppCompatActivity() {
         etAlphaPercent = findViewById(R.id.et_alpha_percent)
         tvColorResult = findViewById(R.id.tv_color_result)
         btnCount = findViewById(R.id.btn_count)
-        llBgShow = findViewById(R.id.ll_bg_show)
+        vBgShow = findViewById(R.id.v_bg_show)
         tvTextShow = findViewById(R.id.tv_text_show)
 
         btnCount?.setOnClickListener {
@@ -42,7 +42,7 @@ class ColorAlphaCalculationActivity : AppCompatActivity() {
             tvColorResult?.text = colorStrCount
 
             val colorIntCount = Color.parseColor(colorStrCount)
-            llBgShow?.setBackgroundColor(colorIntCount)
+            vBgShow?.setBackgroundColor(colorIntCount)
             tvTextShow?.setTextColor(colorIntCount)
         }
     }
@@ -53,7 +53,7 @@ class ColorAlphaCalculationActivity : AppCompatActivity() {
             Color.parseColor(colorStr)
         } catch (e: Exception) {
             e.printStackTrace()
-            colorStr = "#FF0000"
+            colorStr = "#000000"
             etColorStr?.setText(colorStr)
         }
         return colorStr
@@ -74,10 +74,15 @@ class ColorAlphaCalculationActivity : AppCompatActivity() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            percentStr = "0"
-            percentInt = 0
+            percentStr = "100"
+            percentInt = 100
         }
         etAlphaPercent?.setText(percentStr)
         return percentInt
+    }
+
+    override fun onResume() {
+        super.onResume()
+        btnCount?.performClick()
     }
 }
