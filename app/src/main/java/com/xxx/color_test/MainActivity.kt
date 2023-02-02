@@ -10,6 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.title = "RGB 颜色工具"
+
         findViewById<Button>(R.id.btn_of_percent_convert).setOnClickListener {
             startActivity(Intent(this, ColorPercentageActivity::class.java))
         }
