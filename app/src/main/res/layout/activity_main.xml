@@ -21,6 +21,7 @@
         android:id="@+id/btn_of_alpha_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="颜色透明度 计算"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
