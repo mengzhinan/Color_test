@@ -24,7 +24,7 @@ object ColorPercentHelper {
         if (p > 100) {
             p = 100
         }
-        val resultInt = (1.0F * 255 / 100 * p).toInt()
+        val resultInt = Math.round(1.0F * 255 / 100 * p)
         var resultString = Integer.toHexString(resultInt)
         if (resultString.length == 1) {
             resultString = "0$resultString"
